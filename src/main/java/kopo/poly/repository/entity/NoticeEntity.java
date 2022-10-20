@@ -1,56 +1,50 @@
 package kopo.poly.repository.entity;
 
-import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "NOTICE")
 public class NoticeEntity {
+
 
     @Id
     private String noticeSeq;
 
-    @NonNull
-    @Field(name = "title")
+    @Column(nullable = false, name="title")
     private String title;
 
-    @NonNull
-    @Field(name = "notice_yn")
+    @Column(nullable = false, name="noticeYn")
     private String noticeYn;
 
-    @NonNull
-    @Field(name = "contents")
+    @Column(nullable = false, name="contents")
     private String contents;
 
-    @NonNull
-    @Field(name = "user_Id")
+    @Column(nullable = false, name="userId")
     private String userId;
 
-    @NonNull
-    @Field(name = "read_cnt")
+    @Column(nullable = false, name="readCnt")
     private Long readCnt;
 
-    @NonNull
-    @Field(name = "reg_id")
+    @Column(nullable = false, name="regId")
     private String regId;
 
-    @NonNull
-    @Field(name = "reg_dt")
+    @Column(nullable = false, name="regDt")
     private String regDt;
 
-    @NonNull
-    @Field(name = "chg_id")
+    @Column(nullable = false, name="chgId")
     private String chgId;
 
-    @NonNull
-    @Field(name = "chg_dt")
+    @Column(nullable = false, name="chgDt")
     private String chgDt;
+
 
 
 }

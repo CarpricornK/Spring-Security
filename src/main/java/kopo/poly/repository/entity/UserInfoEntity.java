@@ -1,55 +1,57 @@
 package kopo.poly.repository.entity;
-
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
+import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "USER_INFO")
+@DynamicInsert
+@DynamicUpdate
 @Builder
-@Document(collection = "USER_INFO")
+@Cacheable
+@Entity
 public class UserInfoEntity {
 
     @Id
-    private String userSeq;
-
-    @NonNull
-    @Field(name = "USER_ID")
+    @Column(name = "USER_ID")
     private String userId;
 
     @NonNull
-    @Field(name = "USER_NAME")
+    @Column(name = "USER_NAME", length = 500, nullable = false)
     private String userName;
 
     @NonNull
-    @Field(name = "PASSWORD")
+    @Column(name = "PASSWORD", length = 1, nullable = false)
     private String password;
 
     @NonNull
-    @Field(name = "EMAIL")
+    @Column(name = "EMAIL", nullable = false)
     private String email;
 
     @NonNull
-    @Field(name = "ADDR1")
+    @Column(name = "ADDR1", nullable = false)
     private String addr1;
 
-    @NonNull
-    @Field(name = "ADDR2")
+    @Column(name = "ADDR2", nullable = false)
     private String addr2;
 
-    @Field(name = "REG_ID")
+    @Column(name = "reg_id", updatable = false)
     private String regId;
 
-    @Field(name = "REG_DT")
+    @Column(name = "reg_dt", updatable = false)
     private String regDt;
 
-    @Field(name = "CHG_ID")
+    @Column(name = "chg_id")
     private String chgId;
 
-    @Field(name = "CHG_DT")
+    @Column(name = "chg_dt")
     private String chgDt;
 
+    @Column(name = "roles") //권한 데이터는 ,를 구분자로 여러 개(예 : 관리자, 일반사용자) 정의 가능함
+    private String roles;
 
 }

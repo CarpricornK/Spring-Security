@@ -5,21 +5,20 @@
     <meta charset="UTF-8">
     <title>로그인 화면</title>
     <link rel="stylesheet" href="/css/table.css"/>
-    <script type="text/javascript">
-        //로그인을 위한 입력정보의 유효성 체크하기
-        function doLoginUserCheck(f) {
-            if (f.user_id.value === "") {
-                alert("아이디를 입력하세요.");
-                f.user_id.focus();
-                return false;
-            }
-            if (f.password.value === "") {
-                alert("비밀번호를 입력하세요.");
-                f.password.focus();
-                return false;
-            }
+<script>
+    function doLoginUserCheck(f) {
+        if (f.user_id.value === "") {
+            alert("아이디를 입력하세요.");
+            f.user_id.focus();
+            return false;
         }
-    </script>
+        if (f.password.value === "") {
+            alert("비밀번호를 입력하세요.");
+            f.password.focus();
+            return false;
+        }
+    }
+</script>
 </head>
 <body>
 <h2>로그인하기</h2>
@@ -46,5 +45,6 @@
     </div>
     <div><input type="submit" value="로그인"/></div>
 </form>
+
 </body>
 </html>
